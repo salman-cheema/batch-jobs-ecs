@@ -12,4 +12,4 @@ RUN pip3 install pandas
 COPY . /company
 RUN ls /usr/bin/python*
 RUN python3 --version
-CMD ["python3", "company.py"]
+CMD ["python3", "company/company.py"]
