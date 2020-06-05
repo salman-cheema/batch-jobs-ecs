@@ -1,8 +1,8 @@
 pipeline {
 
     agent any
-     options {
-          buildDiscarder(logRotator(numToKeepStr: '200'))
+         triggers {
+        pollSCM 'H/10 * * * *'
     }
 
 environment { 
