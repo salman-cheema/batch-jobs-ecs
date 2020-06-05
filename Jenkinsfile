@@ -11,7 +11,7 @@ environment {
     stages {
         stage('Config') {
             steps {
-                sh 'docker system prune'
+                
                 echo 'replacing value in config file'               
             }
         }
@@ -24,6 +24,7 @@ environment {
         stage('Push') {
             steps{
                 sh ' docker push $DOCKER_HUB_REPO:$IMAGE_TAG'
+                sh 'docker system prune -f'
             }
         }
     }
