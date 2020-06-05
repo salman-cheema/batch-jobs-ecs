@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-WORKDIR /company
+WORKDIR /employee
 RUN apt-get update
 RUN apt install python3 -y
 RUN apt-get install -y python3-pip
@@ -12,4 +12,4 @@ RUN pip3 install pandas
 COPY . /company
 RUN ls /usr/bin/python*
 RUN python3 --version
-CMD ["python3", "company.py"]
+CMD ["python3", "employee.py"]
