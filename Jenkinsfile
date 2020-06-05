@@ -1,6 +1,9 @@
 pipeline {
 
     agent any
+     options {
+   properties([[$class: 'jenkins.model.BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '50', artifactNumToKeepStr: '20']]])
+  }
 
 environment { 
 
