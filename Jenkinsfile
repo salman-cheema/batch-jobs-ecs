@@ -20,7 +20,7 @@ environment {
         }
         stage('Build') {
             steps {
-                sh 'docker build -t $DOCKER_HUB_REPO:$IMAGE_TAG_${env.BUILD_ID} .'
+                sh 'docker build -t $DOCKER_HUB_REPO:$IMAGE_TAG . '
                 echo 'image is build and pushinggggg'
             }
         }
