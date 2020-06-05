@@ -11,7 +11,7 @@ s3 = boto3.resource('s3')
 def main():
     df = pd.read_sql_query('select * from company',con=postgres_connection())
     s3.Bucket(bucket).download_file(key, '/tmp/file')
-    # reading csv file  
+    # reading csv files
     df=pd.read_csv('/tmp/file')
     # Insert to table
     df.to_sql("company",con=postgres_connection(),if_exists='append',index=False)
