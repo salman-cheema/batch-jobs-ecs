@@ -1,13 +1,11 @@
 pipeline {
-
     agent any
-     triggers {
+         triggers {
         githubPush()
+        pollSCM 'H/10 * * * *'
     }
-
 environment { 
-
-        DOCKER_HUB_REPO    = "salmanilyas/flask_image"
+        DOCKER_HUB_REPO    = "salmanilyas/batch-ecs-example"
         IMAGE_TAG   = "${env.BRANCH_NAME}"
     }
     stages {
@@ -18,16 +16,13 @@ environment {
         }
         stage('Build') {
             steps {
-                echo  " This Branch is got Changed ${env.BRANCH_NAME}" 
-
-                echo 'image is build and pushingg'
+                echo 'Build a image for Company ETL'
+                sh 'docker build -t $DOCKER_HUB_REPO:$IMAGE_TAG . '
             }
         }
-        stage('Deploy') {
+        stage('Push') {
             steps{
-                echo " Deploy"
-                
-
+                sh ' docker push $DOCKER_HUB_REPO:$IMAGE_TAG'
             }
         }
     }
