@@ -20,7 +20,7 @@ environment {
             steps {
                 echo  " This Branch is got Changed ${env.BRANCH_NAME}" 
 
-                echo 'image is build and push'
+                echo 'image is build and pushingg'
             }
         }
         stage('Deploy') {
