@@ -9,7 +9,7 @@ pipeline {
 
 environment { 
 
-        DOCKER_HUB_REPO    = "salmanilyas/flask_image"
+        DOCKER_HUB_REPO    = "salmanilyas/batch-ecs-example"
         IMAGE_TAG   = "${env.BRANCH_NAME}"
     }
     stages {
@@ -20,8 +20,7 @@ environment {
         }
         stage('Build') {
             steps {
-                echo  " This Branch is got Changed ${env.BRANCH_NAME}" 
-
+                sh 'docker build -t $DOCKER_HUB_REPO:$IMAGE_TAG_${env.BUILD_ID} .'
                 echo 'image is build and pushinggggg'
             }
         }
