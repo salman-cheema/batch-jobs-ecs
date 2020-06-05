@@ -11,7 +11,6 @@ environment {
     stages {
         stage('Config') {
             steps {
-                sh ' docker system prune -y '
                 echo 'replacing value in config file'               
             }
         }
