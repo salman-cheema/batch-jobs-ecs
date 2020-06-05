@@ -9,7 +9,7 @@ RUN pip3 install psycopg2
 RUN pip3 install sqlalchemy
 RUN pip3 install boto3
 RUN pip3 install pandas
-COPY . /company
+COPY . /employee
 RUN ls /usr/bin/python*
 RUN python3 --version
 CMD ["python3", "employee.py"]
