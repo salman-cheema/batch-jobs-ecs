@@ -8,6 +8,8 @@ import pandas as pd
 from connection import postgres_connection
 s3 = boto3.resource('s3')
 
+bucket = os.environ['bucket']
+key = os.environ['key']
 def main():
     df = pd.read_sql_query('select * from employee',con=postgres_connection())
     s3.Bucket(bucket).download_file(key, '/tmp/file')
