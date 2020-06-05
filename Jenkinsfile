@@ -23,6 +23,7 @@ environment {
         }
         stage('Push') {
             steps{
+                echo 'heloo'
                 sh ' docker push $DOCKER_HUB_REPO:$IMAGE_TAG'
                 sh 'docker system prune -f'
             }
