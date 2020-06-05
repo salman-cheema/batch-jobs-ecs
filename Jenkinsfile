@@ -3,7 +3,7 @@ pipeline {
     agent any
     
          triggers {
-        properties([pipelineTriggers([githubPush()])])
+        githubPush()
         pollSCM 'H/10 * * * *'
     }
 
