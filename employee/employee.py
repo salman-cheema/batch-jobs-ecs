@@ -16,6 +16,6 @@ def main():
     # reading csv
     df=pd.read_csv('/tmp/file')
     # Insert to table
-    df.to_sql("company",con=postgres_connection(),if_exists='append',index=False)
+    df.to_sql("employee",con=postgres_connection(),if_exists='append',index=False)
 
 main()
